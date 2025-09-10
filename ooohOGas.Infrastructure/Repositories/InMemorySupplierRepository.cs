@@ -17,17 +17,17 @@ namespace ooohOGas.Infrastructure.Repositories
         public Task<Supplier?> GetByIdAsync(Guid id)
             => Task.FromResult(_suppliers.FirstOrDefault(x => x.Id == id));
 
-        public Task AddAsync(Supplier supplier)
+        public Supplier AddAsync(Supplier supplier)
         {
             _suppliers.Add(supplier);
-            return Task.CompletedTask;
+            return _suppliers[0];
         }
 
-        public Task UpdateAsync(Supplier supplier)
+        public Supplier UpdateAsync(Supplier supplier)
         {
             var index = _suppliers.FindIndex(x => x.Id == supplier.Id);
             if (index >= 0) _suppliers[index] = supplier;
-            return Task.CompletedTask;
+            return _suppliers[index];
         }
 
         public Task<bool> DeleteAsync(Guid id)

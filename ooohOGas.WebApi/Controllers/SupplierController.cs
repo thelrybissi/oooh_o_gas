@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ooohOGas.Application.DTOs;
+using ooohOGas.Application.Dtos.Suppliers;
+using ooohOGas.Application.Dtos.SuppliersDto;
 using ooohOGas.Application.Interfaces;
 
 namespace ooohOGas.WebApi.Controllers
@@ -27,17 +28,16 @@ namespace ooohOGas.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] SupplierDto dto)
+        public async Task<IActionResult> Create([FromBody] CreateSupplierDto dto)
         {
             var created = await _service.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] SupplierDto dto)
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateSupplierDto dto)
         {
-            dto.Id = id;
-            var updated = await _service.UpdateAsync(dto);
+            var updated = await _service.UpdateAsync(id, dto);
             return updated == null ? NotFound() : Ok(updated);
         }
 

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ooohOGas.Application.DTOs;
+using ooohOGas.Application.Dtos.Suppliers;
+using ooohOGas.Application.Dtos.SuppliersDto;
 
 namespace ooohOGas.Application.Interfaces
 {
     public interface ISupplierService
     {
-        Task<IEnumerable<SupplierDto>> GetAllAsync();
-        Task<SupplierDto?> GetByIdAsync(Guid id);
-        Task<SupplierDto> CreateAsync(SupplierDto dto);
-        Task<SupplierDto?> UpdateAsync(SupplierDto dto);
+        Task<IEnumerable<SupplierResponseDto>> GetAllAsync();
+        Task<SupplierResponseDto?> GetByIdAsync(Guid id);
+        Task<SupplierResponseDto> CreateAsync(CreateSupplierDto dto);
+        Task<SupplierResponseDto?> UpdateAsync(Guid id, UpdateSupplierDto dto);
         Task<bool> DeleteAsync(Guid id);
     }
 }
