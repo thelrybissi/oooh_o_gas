@@ -9,7 +9,6 @@ namespace ooohOGas.Application.Dtos.Customers
 {
     public class CustomerCreateDto
     {
-        public UserRole UserRole { get; set; } = UserRole.Customer;
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;

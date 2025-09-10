@@ -10,11 +10,14 @@ namespace ooohOGas.Domain.Entities
     public class Customer
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public UserRole UserRole { get; set; }   // referência ao User
+        public Guid UserId { get; set; }   // FK para User
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public string Cpf { get; set; } = string.Empty;
+
+        // Navegação
+        public User User { get; set; } = null!;
     }
 }

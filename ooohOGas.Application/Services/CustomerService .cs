@@ -54,7 +54,6 @@ namespace ooohOGas.Application.Services
         {
             var customer = new Customer
             {
-                UserRole = dto.UserRole,
                 Name = dto.Name,
                 Email = dto.Email,
                 Phone = dto.Phone,

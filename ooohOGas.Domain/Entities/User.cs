@@ -13,5 +13,10 @@ namespace ooohOGas.Domain.Entities
         public string Username { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public UserRole Role { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Navegação
+        public Supplier? Supplier { get; set; }
+        public Customer? Customer { get; set; }
     }
 }
