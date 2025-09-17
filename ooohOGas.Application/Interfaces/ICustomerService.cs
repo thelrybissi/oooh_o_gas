@@ -11,9 +11,7 @@ namespace ooohOGas.Application.Interfaces
     {
         Task<IEnumerable<CustomerResponseDto>> GetAllAsync();
         Task<CustomerResponseDto?> GetByIdAsync(Guid id);
-        Task<CustomerResponseDto> CreateAsync(CustomerCreateDto dto);
         Task<CustomerResponseDto?> UpdateAsync(Guid id, CustomerUpdateDto dto);
-        Task<bool> DeleteAsync(Guid id);
 
     }
 }

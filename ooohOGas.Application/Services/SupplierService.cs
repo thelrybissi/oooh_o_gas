@@ -64,7 +64,7 @@ namespace ooohOGas.Application.Services
                 Address = dto.Address
             };
 
-            var result = _repository.AddAsync(entity);
+            var result = await _repository.AddAsync(entity);
             if (result == null) return new SupplierResponseDto();
 
             var response = new SupplierResponseDto
@@ -92,7 +92,7 @@ namespace ooohOGas.Application.Services
             entity.Phone = dto.Phone;
             entity.Address = dto.Address;
 
-            var result = _repository.UpdateAsync(entity);
+            var result = await _repository.UpdateAsync(entity);
             var response = new SupplierResponseDto
             {
                 Id = result.Id,

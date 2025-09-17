@@ -28,25 +28,12 @@ namespace ooohOGas.WebApi.Controllers
             return supplier == null ? NotFound() : Ok(supplier);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CustomerCreateDto dto)
-        {
-            var created = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] CustomerUpdateDto dto)
         {
             var updated = await _service.UpdateAsync(id, dto);
             return updated == null ? NotFound() : Ok(updated);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            var result = await _service.DeleteAsync(id);
-            return result ? NoContent() : NotFound();
         }
     }
 }

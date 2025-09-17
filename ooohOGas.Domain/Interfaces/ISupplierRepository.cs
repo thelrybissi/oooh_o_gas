@@ -5,9 +5,7 @@ namespace ooohOGas.Infrastructure.Repositories
     public interface ISupplierRepository
     {
         Task<IEnumerable<Supplier>> GetAllAsync();
-        Task<Supplier?> GetByIdAsync(Guid id);
-        Supplier AddAsync(Supplier supplier);
-        Supplier UpdateAsync(Supplier supplier);
-        Task<bool> DeleteAsync(Guid id);
+        Task<Supplier?> GetByCnpjAsync(string Cpnj);
+        Task<Supplier> UpdateAsync(Supplier supplier);
     }
 }

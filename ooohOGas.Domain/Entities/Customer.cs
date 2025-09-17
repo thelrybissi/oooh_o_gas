@@ -16,8 +16,6 @@ namespace ooohOGas.Domain.Entities
         public string Phone { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
         public string Cpf { get; set; } = string.Empty;
-
-        // Navegação
-        public User User { get; set; } = null!;
+        public Account Account { get; set; } = null!;
     }
 }

@@ -2,6 +2,10 @@
 {
     public class CreateSupplierDto
     {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+
+        //Dados Supplier
         public string CorporateName { get; set; } = string.Empty;
         public string TradeName { get; set; } = string.Empty;
         public string Cnpj { get; set; } = string.Empty;

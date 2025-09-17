@@ -7,7 +7,7 @@ using ooohOGas.Domain.Enums;
 
 namespace ooohOGas.Domain.Entities
 {
-    public class User
+    public class Account
     {
         public Guid Id { get; set; }
         public string Username { get; set; } = string.Empty;

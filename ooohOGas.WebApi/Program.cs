@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using ooohOGas.Application.Interfaces;
 using ooohOGas.Application.Services;
+using ooohOGas.Infrastructure.Persistence;
 using ooohOGas.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<OoohOGasDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Dependency Injection
-builder.Services.AddSingleton<ISupplierRepository, InMemorySupplierRepository>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
 
 
